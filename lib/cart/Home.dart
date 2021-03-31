@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:test_error/screen/FormScreen.dart';
+import 'package:test_error/screen/More.dart';
 import 'package:test_error/screen/MyBottomNavigationBar.dart';
 import 'cart.dart';
 import 'themeColor.dart';
@@ -10,6 +11,7 @@ import 'cartlistBloc.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:test_error/screen/HomePage.dart';
 class Home extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
 
@@ -52,6 +54,7 @@ class ItemContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+
         addToCart(foodItem);
         final snackBar = SnackBar(
           content: Text('${foodItem.title} เพิ่มลงหน้า BOOKING'),
@@ -67,7 +70,7 @@ class ItemContainer extends StatelessWidget {
         itemName: foodItem.title,
         itemPrice: foodItem.price,
         imgUrl: foodItem.imgUrl,
-        leftAligned: (foodItem.id % 2) == 0 ? true : false,
+        leftAligned: ((foodItem.id)%2) == 0 ? true : false,
       ),
 
     );
@@ -340,6 +343,8 @@ class CategoryListItem extends StatelessWidget {
 
 class CustomAppBar extends StatelessWidget {
   final user = FirebaseAuth.instance.currentUser;
+
+
   @override
   Widget build(BuildContext context) {
     final CartListBloc bloc = BlocProvider.getBloc<CartListBloc>();
@@ -351,13 +356,14 @@ class CustomAppBar extends StatelessWidget {
         children: <Widget>[
           GestureDetector(
               onTap: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => More()));
               },
               child: Icon(
                 Icons.keyboard_arrow_left_rounded,
                 size: 30,
                 color: Colors.white,
-              )),
+              ),),
 
                Text("จองทัวร์",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20,color: Colors.white),),
           StreamBuilder(

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'Provider/provider.dart';
 import 'cart/Home.dart';
+import 'cart/provider.dart';
 import 'screen/Loginscreen.dart';
 import 'screen/SignUp.dart';
 import 'package:firebase_core/firebase_core.dart';

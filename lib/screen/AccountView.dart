@@ -4,12 +4,12 @@ import 'package:provider/provider.dart';
 import 'package:test_error/Models/Trans.dart';
 import 'package:test_error/Provider/provider.dart';
 import 'package:test_error/screen/MyBottomNavigationBar.dart';
+import 'package:test_error/screen/ViewData.dart';
 
 class AccountView extends StatefulWidget {
-
-
   @override
   _AccountViewState createState() => _AccountViewState();
+
 }
 
 class _AccountViewState extends State<AccountView> {
@@ -17,7 +17,6 @@ class _AccountViewState extends State<AccountView> {
     // TODO: implement initState
     super.initState();
     Provider.of<providertrans>(context,listen:false).initData();
-
   }
 
   @override
@@ -32,7 +31,7 @@ class _AccountViewState extends State<AccountView> {
             IconButton(
               icon: Icon(Icons.arrow_back),
               onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyBottomNavigationBar(),));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyBottomNavigationBar(),));
               },
             ),
 
@@ -47,14 +46,14 @@ class _AccountViewState extends State<AccountView> {
                 return Card(
                   elevation: 5,
                   child: ListTile(
-                    leading: CircleAvatar(
+                    leading: CircleAvatar(radius: 30,
                       child: FittedBox(
                         child: Text(data.price.toString()),
                       ),
                     ),
                     title: Text(data.package.toString()),
                     subtitle: Text("จำนวน "+data.number+" คน"),
-                    trailing: Text("Start "+data.start.toString()),
+                    trailing: Text(data.start) ,
 
                   ),
                 );

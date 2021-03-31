@@ -7,6 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
+import 'package:test_error/cart/food_item.dart';
 
 
 class TransactionDB{
@@ -36,12 +37,13 @@ class TransactionDB{
       "firstname" :statement.firstname,//ชื่อทัวร์
       "number" :statement.number,
       "phone" :statement.phone,
-      "travel" : 1 ,
+      "travel" : statement.travel,
       "start":statement.start,
       "end":statement.end,
       "package":statement.package,
-     "price":statement.price,
+      "price":statement.price,
       "email":statement.email,
+      "status":statement.status,
     });
 
     return  keyID;
@@ -88,13 +90,13 @@ class TransactionDB{
             package: record['package'],
             price: record['price'],
             email:record['email'],
+            status: record['status'],
           )
       );
     }
     print(snapshot);
-  // store.delete(db);
+   //store.delete(db);
     return transactionList;
   }
-
 
 }

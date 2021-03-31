@@ -10,6 +10,7 @@ class providertrans with ChangeNotifier {
    return trans;
  }
 
+
  void initData() async{
    var db = TransactionDB(dbName:"transactions.db");
    trans = await db.loadAlldata2();

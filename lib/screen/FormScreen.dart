@@ -43,97 +43,116 @@ final FoodItem foodItem;
             child: SingleChildScrollView(
               child: Container(
                 child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                  TextFormField(
-                    decoration: new InputDecoration(labelText: "ชื่อ", enabledBorder:OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.white, width: 2.0),
-                      borderRadius: BorderRadius.circular(25.0),
-                    ),
-                      focusedBorder:OutlineInputBorder(
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      decoration: new InputDecoration(labelText: "ชื่อ", enabledBorder:OutlineInputBorder(
                         borderSide: const BorderSide(color: Colors.white, width: 2.0),
                         borderRadius: BorderRadius.circular(25.0),
                       ),
+                        focusedBorder:OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.white, width: 2.0),
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
 
-                      labelStyle: TextStyle(
-                          color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20.0),
+                        labelStyle: TextStyle(
+                            color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20.0),
+                      ),
+                      autofocus: true,
+                      controller: firstnameController,
+                      validator: (String str) {
+                        if (str.isEmpty) {
+                          return "input name";
+                        }
+                        return null;
+                      },
                     ),
-                    autofocus: true,
-                    controller: firstnameController,
-                    validator: (String str) {
-                      if (str.isEmpty) {
-                        return "input name";
-                      }
-                      return null;
-                    },
                   ),
-                  TextFormField(
-                    keyboardType: TextInputType.number,
-                    decoration: new InputDecoration(labelText: "จำนวนคน",enabledBorder:OutlineInputBorder(
-                      borderSide: const BorderSide(color: Colors.white, width: 2.0),
-                      borderRadius: BorderRadius.circular(25.0),
-                    ),
-                      focusedBorder:OutlineInputBorder(
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      decoration: new InputDecoration(labelText: "จำนวนคน",enabledBorder:OutlineInputBorder(
                         borderSide: const BorderSide(color: Colors.white, width: 2.0),
                         borderRadius: BorderRadius.circular(25.0),
                       ),
+                        focusedBorder:OutlineInputBorder(
+                          borderSide: const BorderSide(color: Colors.white, width: 2.0),
+                          borderRadius: BorderRadius.circular(25.0),
+                        ),
 
-                      labelStyle: TextStyle(
-                          color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20.0),
+                        labelStyle: TextStyle(
+                            color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20.0),
+                      ),
+                      autofocus: true,
+                      controller: numberController,
+                      validator: (String str) {
+                        if (str.isEmpty) {
+                          return "input number";
+                        }
+                        return null;
+                      },
                     ),
-                    autofocus: true,
-                    controller: numberController,
-                    validator: (String str) {
-                      if (str.isEmpty) {
-                        return "input number";
-                      }
-                      return null;
-                    },
                   ),
-                  TextFormField(
-                    decoration: new InputDecoration(labelText: "phone",enabledBorder:OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white, width: 2.0),
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      keyboardType: TextInputType.number,
+                      decoration: new InputDecoration(labelText: "phone",enabledBorder:OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white, width: 2.0),
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
             focusedBorder:OutlineInputBorder(
                 borderSide: const BorderSide(color: Colors.white, width: 2.0),
                 borderRadius: BorderRadius.circular(25.0),
             ),
 
             labelStyle: TextStyle(
-                  color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20.0),
+                    color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20.0),
         ),
-                    autofocus: true,
-                    controller: phoneController,
-                    validator: (String str) {
-                      if (str.isEmpty) {
-                        return "input phone";
-                      }
-                      return null;
-                    },
+                      autofocus: true,
+                      controller: phoneController,
+                      validator: (String str) {
+                        if (str.isEmpty) {
+                          return "input phone";
+
+                        } else if(str.length!=10){
+                          return "input 10number";
+                        }
+                        else{
+
+                        return null;
+                        }
+                      },
+                    ),
                   ),
-                  DateTimeField(
-                    format: dateFormat,
-                    decoration: new InputDecoration(labelText: "เดินทาง",enabledBorder:OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white, width: 2.0),
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: DateTimeField(
+                      format: dateFormat,
+                      decoration: new InputDecoration(labelText: "เดินทาง",enabledBorder:OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white, width: 2.0),
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
             focusedBorder:OutlineInputBorder(
                 borderSide: const BorderSide(color: Colors.white, width: 2.0),
                 borderRadius: BorderRadius.circular(25.0),
             ),
 
             labelStyle: TextStyle(
-                  color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20.0),
+                    color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20.0),
         ),
-                    autofocus: true,
-                    controller: startController,
-                    validator: (date) => date == null ? 'Invalid date' : null,
-                    onShowPicker: (context, currentValue) {
-                      return showDatePicker(
-                          context: context,
-                          firstDate: DateTime(1900),
-                          initialDate: currentValue ?? DateTime.now(),
-                          lastDate: DateTime(2100));
-                    },
+                      autofocus: true,
+                      controller: startController,
+                      validator: (date) => date == null ? 'Invalid date' : null,
+                      onShowPicker: (context, currentValue) {
+                        return showDatePicker(
+                            context: context,
+                            firstDate: DateTime(1900),
+                            initialDate: currentValue ?? DateTime.now(),
+                            lastDate: DateTime(2100));
+                      },
+                    ),
                   ),
 
                   DateTimeField(
@@ -162,23 +181,26 @@ final FoodItem foodItem;
                     },
                   ),
 
-                  TextField(
-                    decoration: new InputDecoration(labelText: "Package" ,hintText:foodItem.title,enabledBorder:OutlineInputBorder(
-                    borderSide: const BorderSide(color: Colors.white, width: 2.0),
-                    borderRadius: BorderRadius.circular(25.0),
-                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      decoration: new InputDecoration(labelText: "Package" ,hintText:foodItem.title,enabledBorder:OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.white, width: 2.0),
+                      borderRadius: BorderRadius.circular(25.0),
+                    ),
             focusedBorder:OutlineInputBorder(
                 borderSide: const BorderSide(color: Colors.white, width: 2.0),
                 borderRadius: BorderRadius.circular(25.0),
             ),
 
             labelStyle: TextStyle(
-                  color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20.0),
+                    color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 20.0),
         ),
-                   controller: packageController,
-                    autofocus: true,
+                     controller: packageController,
+                      autofocus: true,
                 readOnly: true,
 
+                    ),
                   ),
 
                   Padding(
@@ -211,12 +233,14 @@ final FoodItem foodItem;
                                 package: package,
                                 price: price,
                                 email: email,
+                                status: "ยังไม่จ่าย",
                               );
                               // call provider
                               var provider =
                               Provider.of<providertrans>(
                                   context, listen: false);
                               provider.addTrans(statement);
+
                               Navigator.pop(context);
                             }
                             else{

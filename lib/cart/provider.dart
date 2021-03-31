@@ -1,6 +1,10 @@
+import 'package:flutter/foundation.dart';
+import 'package:test_error/Database/Transaction_db.dart';
+
 import 'food_item.dart';
 
-class CartProvider {
+
+class CartProvider  {
   List<FoodItem> foodItems = [];
 
   List<FoodItem> addToList(FoodItem foodItem) {

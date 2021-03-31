@@ -105,7 +105,7 @@ class BottomBar extends StatelessWidget {
     double totalAmount = 0.0;
 
     for (int i = 0; i < foodItems.length; i++) {
-      totalAmount = totalAmount + foodItems[i].price * foodItems[i].quantity;
+      totalAmount = totalAmount + (foodItems[i].price) * foodItems[i].quantity;
     }
     return totalAmount.toStringAsFixed(2);
   }
@@ -396,7 +396,7 @@ class ItemContent extends StatelessWidget {
                 ]),
           ),
           Text(
-            "\$${foodItem.quantity * foodItem.price}",
+            "\$${foodItem.quantity * (foodItem.price)}",
             style:
                 TextStyle(color: Colors.grey[500], fontWeight: FontWeight.w400),
           ),

@@ -8,6 +8,7 @@ class Trans{
   String package ;
   double price ;
   String email;
-  Trans({this.firstname,this.number,this.phone,this.travel,this.start,this.end,this.package,this.price,this.email
+  String status;
+  Trans({this.firstname,this.number,this.phone,this.travel,this.start,this.end,this.package,this.price,this.email,this.status,
   });
 }

@@ -52,7 +52,7 @@ class _MoreState extends State<More> {
                     children: <Widget>[
                       GestureDetector(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
+                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MyBottomNavigationBar()));
                           },
                           child: Icon(Icons.arrow_back)),
                       Expanded(
@@ -238,7 +238,7 @@ class _MoreState extends State<More> {
                           alignment: Alignment.topLeft,
                           child: Icon(
                             place.favorite ? Icons.favorite : Icons.favorite_border,
-                            color: Color(0xFFEFF4F8),
+                            color: Colors.white,
                             size: 36,
                           ),
                         ),
